@@ -1,0 +1,4 @@
+interface:
+  display_name: "Superpowers Harness"
+  short_description: "用四个短入口驱动复杂项目 workflow"
+  default_prompt: "使用 SuperpowersHarness，通过 sh-start 帮我收敛一个已有项目上的大功能。"
