@@ -1,0 +1,4 @@
+interface:
+  display_name: "sh-run"
+  short_description: "执行已编写的执行包，带受控边界和结构化报告"
+  default_prompt: "使用 sh-run 执行当前执行包，带停机线和学习摘要。"

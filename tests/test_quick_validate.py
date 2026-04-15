@@ -82,11 +82,13 @@ class QuickValidateTests(unittest.TestCase):
     def test_repository_skill_passes_validation(self):
         module = load_module()
 
-        skill_dir = REPO_ROOT / "skills" / "SuperpowersHarness"
+        skill_names = ["superpowers-harness", "sh-start", "sh-pack", "sh-run", "sh-recover"]
 
-        errors = module.validate_skill_directory(skill_dir)
-
-        self.assertEqual(errors, [])
+        for name in skill_names:
+            with self.subTest(skill=name):
+                skill_dir = REPO_ROOT / "skills" / name
+                errors = module.validate_skill_directory(skill_dir)
+                self.assertEqual(errors, [], f"Skill {name} failed: {errors}")
 
 
 if __name__ == "__main__":

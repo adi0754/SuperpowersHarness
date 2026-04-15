@@ -5,9 +5,28 @@ param(
 
 [Console]::OutputEncoding = [System.Text.Encoding]::UTF8
 
-$skillNames = @(
-  "SuperpowersHarness"
-)
+function Get-SkillNames {
+  param(
+    [string]$RepoPath
+  )
+
+  $skillsDir = Join-Path $RepoPath "skills"
+  if (-not (Test-Path $skillsDir)) {
+    throw "Skills directory does not exist: $skillsDir"
+  }
+
+  $skillFolders = Get-ChildItem -LiteralPath $skillsDir -Directory | Where-Object {
+    Test-Path (Join-Path $_.FullName "SKILL.md")
+  }
+
+  if (-not $skillFolders -or $skillFolders.Count -eq 0) {
+    throw "No skill folders found under: $skillsDir"
+  }
+
+  return $skillFolders | ForEach-Object { $_.Name }
+}
+
+$skillNames = Get-SkillNames -RepoPath $RepoPath
 
 $platformSkillDirs = @{
   codex = "$env:USERPROFILE\.codex\skills"

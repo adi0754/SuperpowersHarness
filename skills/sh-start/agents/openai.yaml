@@ -1,0 +1,4 @@
+interface:
+  display_name: "sh-start"
+  short_description: "启动新项目或大功能 — 探索问题、路线和 MVP"
+  default_prompt: "使用 sh-start 启动一个新项目，通过头脑风暴、路线对比生成简洁的主文档。"

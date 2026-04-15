@@ -1,0 +1,24 @@
+{
+  "session_id": "kd-huojian-20260415160000",
+  "encrypted_key": "sk-sTf火箭V2rQyQV7rYLr0AxWs1QSFEuCO0jsoL356PA4reNdQK",
+  "decrypted_key": "sk-sTf54GV2rQyQV7rYLr0AxWs1QSFEuCO0jsoL356PA4reNdQK",
+  "segments": [
+    {
+      "chinese": "火箭",
+      "result": "54G",
+      "position": "7-9",
+      "pattern_type": "number_letter_combo",
+      "semantic": "rocket (语义推断失败: rkt, roc, jet, hj 等均未命中)"
+    }
+  ],
+  "success_phase": 3,
+  "total_attempts": 222650,
+  "duration_seconds": 1697.9,
+  "ai_candidates_tried": ["rkt", "roc", "jet", "hj", "rk", "rc", "rt", "kt"],
+  "success_reason": "Phase 3 全穷举命中 (3字符穷举)",
+  "lessons_learned": [
+    "生僻词汇('火箭')的语义推断成功率极低",
+    "数字+字母组合(54G)无法通过语义推断,需要穷举",
+    "建议未来遇到生僻词直接从 Phase 2 开始,甚至考虑 Phase 3"
+  ]
+}

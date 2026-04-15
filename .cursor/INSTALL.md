@@ -27,18 +27,24 @@ cd .\SuperpowersHarness
 powershell -ExecutionPolicy Bypass -File .\scripts\install.ps1 -Platforms cursor
 ```
 
-脚本会把：
+脚本会把 `skills/` 下的 5 个 Skill 分别链接到对应平台目录：
 
-`skills/SuperpowersHarness`
-
-链接到：
-
-`%USERPROFILE%\.cursor\skills\SuperpowersHarness`
+- `superpowers-harness` — 路由器，自动分发到下面 4 个入口
+- `sh-start` — 新项目启动
+- `sh-pack` — 压执行包
+- `sh-run` — 执行
+- `sh-recover` — 漂移恢复
 
 ## 3. 校验
 
+依次校验每个 Skill：
+
 ```powershell
-python .\scripts\quick_validate.py .\skills\SuperpowersHarness
+python .\scripts\quick_validate.py .\skills\superpowers-harness
+python .\scripts\quick_validate.py .\skills\sh-start
+python .\scripts\quick_validate.py .\skills\sh-pack
+python .\scripts\quick_validate.py .\skills\sh-run
+python .\scripts\quick_validate.py .\skills\sh-recover
 ```
 
 ## 4. 重启工具
@@ -47,11 +53,25 @@ python .\scripts\quick_validate.py .\skills\SuperpowersHarness
 
 ## 5. 开始使用
 
-```text
-use SuperpowersHarness to handle this request with sh-recover:
+新项目？用 `/sh-start` 定方向：
 
-- 当前项目 / 功能：
-- 最漂移的地方：
-- 我这次最想先收回什么：
-- 当前已有线索：
+```text
+/sh-start
+
+- 当前项目 / 功能背景：
+- 这次想解决的问题：
+- 为什么现在做：
+- 已知约束：
 ```
+
+方向已定？用 `/sh-pack` 压执行包。执行包就绪？用 `/sh-run` 开始执行。
+
+## Platform Notes
+
+Cursor does not support `AskUserQuestion`. The `sh-run` validation record uses **Mode B** (Quick Confirmation Protocol) — a three-line confirmation prompt.
+
+| Feature | Cursor |
+| ------- | ------ |
+| Mode A (AskUserQuestion) | Not supported |
+| Mode B (Quick Confirmation) | Supported |
+| Skill discovery | `%USERPROFILE%\.cursor\skills\` |

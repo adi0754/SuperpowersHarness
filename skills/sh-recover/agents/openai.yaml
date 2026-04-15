@@ -1,0 +1,4 @@
+interface:
+  display_name: "sh-recover"
+  short_description: "项目漂移或叙事漂移后重新掌控"
+  default_prompt: "使用 sh-recover 重新确立主线、识别漂移并推荐下一步。"
