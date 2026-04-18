@@ -34,6 +34,8 @@
 
 写得简短也没关系——Skill 会先草拟一份模板给你确认，不会直接开跑。
 
+> **从零起步的新项目？** 仓库提供一份启动模板 [`docs/templates/sh-bootstrap.md`](./templates/sh-bootstrap.md)：填完基本信息后整段粘给 AI，先产出 `README.md` / `ROADMAP.md` / `AGENTS.md` 三份定稿文档；拿到文档后再回到本步的 `/sh-start` 推进首个里程碑。
+
 ## 第 3 步：拍板你的方向（1 分钟）
 
 Skill 会给你：
